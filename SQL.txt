@@ -1,0 +1,187 @@
+CREATE TABLE `configurator`.`voltage` ( `name` VARCHAR NOT NULL , `price` DECIMAL NOT NULL ) ENGINE = MyISAM;
+CREATE TABLE `configurator`.`module` ( `name` VARCHAR NOT NULL , `price` DECIMAL NOT NULL ) ENGINE = MyISAM;
+CREATE TABLE `configurator`.`blowertype` ( `name` VARCHAR NOT NULL , `price` DECIMAL NOT NULL ) ENGINE = MyISAM;
+CREATE TABLE `configurator`.`evapairpath` ( `name` VARCHAR NOT NULL , `price` DECIMAL NOT NULL ) ENGINE = MyISAM;
+CREATE TABLE `configurator`.`digitalscrollcomp` ( `name` VARCHAR NOT NULL , `price` DECIMAL NOT NULL ) ENGINE = MyISAM;
+CREATE TABLE `configurator`.`fluidtype` ( `name` VARCHAR NOT NULL , `price` DECIMAL NOT NULL ) ENGINE = MyISAM;
+CREATE TABLE `configurator`.`percentglycol` ( `name` VARCHAR NOT NULL , `price` DECIMAL NOT NULL ) ENGINE = MyISAM;
+CREATE TABLE `configurator`.`evapfiltertype` ( `name` VARCHAR NOT NULL , `price` DECIMAL NOT NULL ) ENGINE = MyISAM;
+CREATE TABLE `configurator`.`heattype` ( `name` VARCHAR NOT NULL , `price` DECIMAL NOT NULL ) ENGINE = MyISAM;
+CREATE TABLE `configurator`.`reheattype` ( `name` VARCHAR NOT NULL , `price` DECIMAL NOT NULL ) ENGINE = MyISAM;
+CREATE TABLE `configurator`.`airsideecon` ( `name` VARCHAR NOT NULL , `price` DECIMAL NOT NULL ) ENGINE = MyISAM;
+CREATE TABLE `configurator`.`vavapptype` ( `name` VARCHAR NOT NULL , `price` DECIMAL NOT NULL ) ENGINE = MyISAM;
+CREATE TABLE `configurator`.`walltempsensor` ( `name` VARCHAR NOT NULL , `price` DECIMAL NOT NULL ) ENGINE = MyISAM;
+CREATE TABLE `configurator`.`wallhumidsensor` ( `name` VARCHAR NOT NULL , `price` DECIMAL NOT NULL ) ENGINE = MyISAM;
+CREATE TABLE `configurator`.`ducttempsensor` ( `name` VARCHAR NOT NULL , `price` DECIMAL NOT NULL ) ENGINE = MyISAM;
+CREATE TABLE `configurator`.`ducthumidsensor` ( `name` VARCHAR NOT NULL , `price` DECIMAL NOT NULL ) ENGINE = MyISAM;
+CREATE TABLE `configurator`.`bmscomm` ( `name` VARCHAR NOT NULL , `price` DECIMAL NOT NULL ) ENGINE = MyISAM;
+
+
+
+
+INSERT IGNORE INTO `tonnage` (`name`, `price`) VALUES ('Please Select', 0);
+INSERT IGNORE INTO `tonnage` (`name`, `price`) VALUES ('15', 0);
+INSERT IGNORE INTO `tonnage` (`name`, `price`) VALUES ('20', 0);
+INSERT IGNORE INTO `tonnage` (`name`, `price`) VALUES ('25', 0);
+INSERT IGNORE INTO `tonnage` (`name`, `price`) VALUES ('30', 0);
+INSERT IGNORE INTO `tonnage` (`name`, `price`) VALUES ('40', 0);
+INSERT IGNORE INTO `tonnage` (`name`, `price`) VALUES ('50', 0);
+INSERT IGNORE INTO `tonnage` (`name`, `price`) VALUES ('60', 0);
+INSERT IGNORE INTO `tonnage` (`name`, `price`) VALUES ('70', 0);
+INSERT IGNORE INTO `tonnage` (`name`, `price`) VALUES ('80', 0);
+INSERT IGNORE INTO `tonnage` (`name`, `price`) VALUES ('90', 0);
+
+
+
+
+INSERT IGNORE INTO `module` (`name`, `price`) VALUES ('Please Select', 0);
+INSERT IGNORE INTO `module` (`name`, `price`) VALUES ('Single - Left Hand', 0);
+INSERT IGNORE INTO `module` (`name`, `price`) VALUES ('Single - Right Hand', 0);
+
+
+INSERT IGNORE INTO `blowertype` (`name`, `price`) VALUES ('Please Select', 0);
+INSERT IGNORE INTO `blowertype` (`name`, `price`) VALUES ('DPD Direct Drive Parallel', 0);
+INSERT IGNORE INTO `blowertype` (`name`, `price`) VALUES ('ECM Fans', 0);
+
+
+
+INSERT IGNORE INTO `evapairpath` (`name`, `price`) VALUES ('Please Select', 0);
+INSERT IGNORE INTO `evapairpath` (`name`, `price`) VALUES ('Rear Return / Top Supply', 0);
+INSERT IGNORE INTO `evapairpath` (`name`, `price`) VALUES ('Rear Return / Front Supply', 0);
+INSERT IGNORE INTO `evapairpath` (`name`, `price`) VALUES ('Rear Return / Rear Supply', 0);
+
+
+INSERT IGNORE INTO `digitalscrollcomp` (`name`, `price`) VALUES ('None', 0);
+INSERT IGNORE INTO `digitalscrollcomp` (`name`, `price`) VALUES ('Digital Scroll (1st circ) + Std Scroll (2nd Circ)', 0);
+INSERT IGNORE INTO `digitalscrollcomp` (`name`, `price`) VALUES ('Digital Scroll', 0);
+INSERT IGNORE INTO `digitalscrollcomp` (`name`, `price`) VALUES ('Digital Speed', 0);
+
+
+
+INSERT IGNORE INTO `quantity` (`name`, `price`) VALUES ('0', 0);
+INSERT IGNORE INTO `quantity` (`name`, `price`) VALUES ('1', 0);
+INSERT IGNORE INTO `quantity` (`name`, `price`) VALUES ('2', 0);
+INSERT IGNORE INTO `quantity` (`name`, `price`) VALUES ('3', 0);
+INSERT IGNORE INTO `quantity` (`name`, `price`) VALUES ('4', 0);
+
+
+INSERT IGNORE INTO `fluidtype` (`name`, `price`) VALUES ('Water', 0);
+INSERT IGNORE INTO `fluidtype` (`name`, `price`) VALUES ('Ethylene Glycol', 0);
+INSERT IGNORE INTO `fluidtype` (`name`, `price`) VALUES ('Propylene Glycol', 0);
+
+
+INSERT IGNORE INTO `percentglycol` (`name`, `price`) VALUES ('10%', 0);
+INSERT IGNORE INTO `percentglycol` (`name`, `price`) VALUES ('20%', 0);
+INSERT IGNORE INTO `percentglycol` (`name`, `price`) VALUES ('30%', 0);
+INSERT IGNORE INTO `percentglycol` (`name`, `price`) VALUES ('40%', 0);
+
+
+
+INSERT IGNORE INTO `evapfiltertype` (`name`, `price`) VALUES ('None', 0);
+INSERT IGNORE INTO `evapfiltertype` (`name`, `price`) VALUES ('2" MERV 8', 0);
+INSERT IGNORE INTO `evapfiltertype` (`name`, `price`) VALUES ('2" MERV 11', 0);
+INSERT IGNORE INTO `evapfiltertype` (`name`, `price`) VALUES ('2" MERV 13', 0);
+INSERT IGNORE INTO `evapfiltertype` (`name`, `price`) VALUES ('4" MERV 8', 0);
+INSERT IGNORE INTO `evapfiltertype` (`name`, `price`) VALUES ('4" MERV 11', 0);
+INSERT IGNORE INTO `evapfiltertype` (`name`, `price`) VALUES ('4" MERV 13', 0);
+INSERT IGNORE INTO `evapfiltertype` (`name`, `price`) VALUES ('4" MERV 8 and 4 MERV 13', 0);
+
+
+INSERT IGNORE INTO `heattype` (`name`, `price`) VALUES ('No heat', 0);
+INSERT IGNORE INTO `heattype` (`name`, `price`) VALUES ('15 kW 2-Stage', 0);
+INSERT IGNORE INTO `heattype` (`name`, `price`) VALUES ('20 kW 2-Stage', 0);
+INSERT IGNORE INTO `heattype` (`name`, `price`) VALUES ('25 kW 2-Stage', 0);
+INSERT IGNORE INTO `heattype` (`name`, `price`) VALUES ('30 kW 2-Stage', 0);
+INSERT IGNORE INTO `heattype` (`name`, `price`) VALUES ('40 kW 2-Stage', 0);
+INSERT IGNORE INTO `heattype` (`name`, `price`) VALUES ('45 kW 2-Stage', 0);
+INSERT IGNORE INTO `heattype` (`name`, `price`) VALUES ('50 kW 2-Stage', 0);
+INSERT IGNORE INTO `heattype` (`name`, `price`) VALUES ('60 kW 2-Stage', 0);
+INSERT IGNORE INTO `heattype` (`name`, `price`) VALUES ('Steam Coil - Distributing (Non Frz)', 0);
+INSERT IGNORE INTO `heattype` (`name`, `price`) VALUES ('Hot Water Coil', 0);
+
+
+INSERT IGNORE INTO `reheattype` (`name`, `price`) VALUES ('No reheat', 0);
+INSERT IGNORE INTO `reheattype` (`name`, `price`) VALUES ('Hot Water Coil', 0);
+
+
+INSERT IGNORE INTO `airsideecon` (`name`, `price`) VALUES ('None', 0);
+INSERT IGNORE INTO `airsideecon` (`name`, `price`) VALUES ('Contors Only', 0);
+
+
+INSERT IGNORE INTO `vavapptype` (`name`, `price`) VALUES ('Multi-Zone', 0);
+INSERT IGNORE INTO `vavapptype` (`name`, `price`) VALUES ('Single-Zone', 0);
+
+
+INSERT IGNORE INTO `walltempsensor` (`name`, `price`) VALUES ('0', 0);
+INSERT IGNORE INTO `walltempsensor` (`name`, `price`) VALUES ('1', 0);
+INSERT IGNORE INTO `walltempsensor` (`name`, `price`) VALUES ('2', 0);
+INSERT IGNORE INTO `walltempsensor` (`name`, `price`) VALUES ('3', 0);
+
+
+INSERT IGNORE INTO `bmscomm` (`name`, `price`) VALUES ('None', 0);
+INSERT IGNORE INTO `bmscomm` (`name`, `price`) VALUES ('BACnet - MS/TP', 0);
+INSERT IGNORE INTO `bmscomm` (`name`, `price`) VALUES ('BACnet - IP (Ethernet)', 0);
+INSERT IGNORE INTO `bmscomm` (`name`, `price`) VALUES ('ModBus', 0);
+INSERT IGNORE INTO `bmscomm` (`name`, `price`) VALUES ('To Be Determined', 0);
+
+
+
+INSERT IGNORE INTO `wallhumidsensor` (`name`, `price`) VALUES ('0', 0);
+INSERT IGNORE INTO `wallhumidsensor` (`name`, `price`) VALUES ('1', 0);
+INSERT IGNORE INTO `wallhumidsensor` (`name`, `price`) VALUES ('2', 0);
+INSERT IGNORE INTO `wallhumidsensor` (`name`, `price`) VALUES ('3', 0);
+
+
+INSERT IGNORE INTO `ducthumidsensor` (`name`, `price`) VALUES ('0', 0);
+INSERT IGNORE INTO `ducthumidsensor` (`name`, `price`) VALUES ('1', 0);
+INSERT IGNORE INTO `ducthumidsensor` (`name`, `price`) VALUES ('2', 0);
+INSERT IGNORE INTO `ducthumidsensor` (`name`, `price`) VALUES ('3', 0);
+
+
+INSERT IGNORE INTO `ducttempsensor` (`name`, `price`) VALUES ('0', 0);
+INSERT IGNORE INTO `ducttempsensor` (`name`, `price`) VALUES ('1', 0);
+INSERT IGNORE INTO `ducttempsensor` (`name`, `price`) VALUES ('2', 0);
+INSERT IGNORE INTO `ducttempsensor` (`name`, `price`) VALUES ('3', 0);
+
+
+INSERT IGNORE INTO `unitinsulation` (`name`, `price`) VALUES ('None', 0);
+INSERT IGNORE INTO `unitinsulation` (`name`, `price`) VALUES ('1 in Elastomeric Foam', 0);
+INSERT IGNORE INTO `unitinsulation` (`name`, `price`) VALUES ('Double Wall - Solid Panel', 0);
+
+
+INSERT IGNORE INTO `protectivecoilcoating` (`name`, `price`) VALUES ('None', 0);
+INSERT IGNORE INTO `protectivecoilcoating` (`name`, `price`) VALUES ('ElectroCoil / E-Coat', 0);
+INSERT IGNORE INTO `protectivecoilcoating` (`name`, `price`) VALUES ('Heresite', 0);
+
+
+
+CREATE TABLE `configurator`.`basemodels` ( `name` VARCHAR(50) NOT NULL , `price` DECIMAL NOT NULL ) ENGINE = MyISAM;
+
+INSERT IGNORE INTO `basemodels` (`name`, `price`) VALUES ('VariCool EZ-Fit', 0);
+
+
+
+CREATE TABLE `configurator`.`user` ( `firstname` VARCHAR(50) NOT NULL , `lastname` VARCHAR(50) NOT NULL , `email` VARCHAR(50) NOT NULL , `password` VARCHAR(50) NOT NULL , `admin` BOOLEAN NOT NULL ) ENGINE = MyISAM;
+
+CREATE TABLE `configurator`.`projectsaver` ( `details` INT NOT NULL , `email` VARCHAR(50) NOT NULL , `quantity` DECIMAL NOT NULL , `unittag` VARCHAR(50) NOT NULL , `basemodel` VARCHAR(50) NOT NULL , `producttype` VARCHAR(50) NOT NULL , `tonnage` VARCHAR(50) NOT NULL , `voltage` VARCHAR(50) NOT NULL , `module` VARCHAR(50) NOT NULL , `blowertype` VARCHAR(50) NOT NULL , `evapairpath` VARCHAR(50) NOT NULL , `digitalscrollcomp` VARCHAR(50) NOT NULL , `scfmret` DECIMAL NOT NULL , `espret` DECIMAL NOT NULL , `eatdbret` DECIMAL NOT NULL , `eatwbret` DECIMAL NOT NULL , `scfmout` DECIMAL NOT NULL , `espout` DECIMAL NOT NULL , `eatdbout` DECIMAL NOT NULL , `eatwbout` DECIMAL NOT NULL , `scfmmix` DECIMAL NOT NULL , `espmix` DECIMAL NOT NULL , `eatdbmix` DECIMAL NOT NULL , `eatwbmix` DECIMAL NOT NULL , `mixedair` BOOLEAN NOT NULL , `fluidtype` VARCHAR(50) NOT NULL , `percentglycol` VARCHAR(50) NOT NULL , `gpm` DECIMAL NOT NULL , `eft` DECIMAL NOT NULL , `evapfiltertype` VARCHAR(50) NOT NULL , `heattype` VARCHAR(50) NOT NULL , `reheattype` VARCHAR(50) NOT NULL , `airsideecon` VARCHAR(50) NOT NULL , `chilledwatercoil` BOOLEAN NOT NULL , `watersideecon` BOOLEAN NOT NULL , `heatnreheat` BOOLEAN NOT NULL , `eatf` DECIMAL NOT NULL , `approxlat` DECIMAL NOT NULL , `eft2` DECIMAL NOT NULL , `percentglycol2` VARCHAR(50) NOT NULL , `fluidtype2` VARCHAR(50) NOT NULL , `lft/gpm` BOOLEAN NOT NULL , `eatdb2` INT NOT NULL , `eatwb2` INT NOT NULL , `eft3` INT NOT NULL , `approxbtuh` INT NOT NULL , `nonfused` BOOLEAN NOT NULL , `phasereversalsens` BOOLEAN NOT NULL , `freezestat` BOOLEAN NOT NULL , `condesnatepump` BOOLEAN NOT NULL , `compressorheater` BOOLEAN NOT NULL , `remotewaterpump` BOOLEAN NOT NULL , `waterflowswitch` BOOLEAN NOT NULL , `contactsqty` INT NOT NULL , `usedfor` LONGTEXT NOT NULL , `vavapptype` VARCHAR(50) NOT NULL , `walltempsens` INT NOT NULL , `wallhumidsens` INT NOT NULL , `ducttempsens` INT NOT NULL , `ducthumidsens` INT NOT NULL , `bmscomm` VARCHAR(50) NOT NULL , `marveldisplay` BOOLEAN NOT NULL , `scr` BOOLEAN NOT NULL , `smokedetector` BOOLEAN NOT NULL , `firestat` BOOLEAN NOT NULL , `shipsplit` BOOLEAN NOT NULL , `compressoracoustic` BOOLEAN NOT NULL , `protectivecoil` VARCHAR(50) NOT NULL , `unitinsul` VARCHAR(50) NOT NULL , `nonstandard` LONGTEXT NOT NULL , `totalcost` DECIMAL NOT NULL , `lastmodified` DATE NOT NULL ) ENGINE = MyISAM;
+
+
+
+CREATE TABLE `configurator`.`details` ( `name` VARCHAR(50) NOT NULL , `ref/orderno` VARCHAR(50) NOT NULL , `address` MEDIUMTEXT NOT NULL , `city` VARCHAR(50) NOT NULL , `country` VARCHAR(50) NOT NULL , `state` VARCHAR(50) NOT NULL , `zip` VARCHAR(50) NOT NULL , `primarycontact` VARCHAR(50) NOT NULL , `eng/arch` VARCHAR(50) NOT NULL , `owner` VARCHAR(50) NOT NULL , `contractor` VARCHAR(50) NOT NULL , `status` VARCHAR(50) NOT NULL , `type` VARCHAR(50) NOT NULL , `design` VARCHAR(50) NOT NULL ) ENGINE = MyISAM;
+
+alter table projectsaver
+add CONSTRAINT details_fk
+FOREIGN key details_fk(details)
+REFERENCES details
+
+
+
+-- test input
+
+INSERT INTO `projectsaver` (`details`, `email`, `quantity`, `unittag`, `basemodel`, `producttype`, `tonnage`, `voltage`, `module`, `blowertype`, `evapairpath`, `digitalscrollcomp`, `scfmret`, `espret`, `eatdbret`, `eatwbret`, `scfmout`, `espout`, `eatdbout`, `eatwbout`, `scfmmix`, `espmix`, `eatdbmix`, `eatwbmix`, `mixedair`, `fluidtype`, `percentglycol`, `gpm`, `eft`, `evapfiltertype`, `heattype`, `reheattype`, `airsideecon`, `chilledwatercoil`, `watersideecon`, `heatnreheat`, `eatf`, `approxlat`, `eft2`, `percentglycol2`, `fluidtype2`, `lft/gpm`, `eatdb2`, `eatwb2`, `eft3`, `approxbtuh`, `nonfused`, `phasereversalsens`, `freezestat`, `condesnatepump`, `compressorheater`, `remotewaterpump`, `waterflowswitch`, `contactsqty`, `usedfor`, `vavapptype`, `walltempsens`, `wallhumidsens`, `ducttempsens`, `ducthumidsens`, `bmscomm`, `marveldisplay`, `scr`, `smokedetector`, `firestat`, `shipsplit`, `compressoracoustic`, `protectivecoil`, `unitinsul`, `nonstandard`, `totalcost`, `lastmodified`) VALUES ('2', 'admin@admin.com', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '2022-08-27');
+
+CREATE TABLE `configurator`.`unitperformances` ( `tons` INT(10) NOT NULL , `totalcooling` DECIMAL(10,1) NOT NULL , `sensiblecooling` DECIMAL(10,1) NOT NULL , `latdb` DECIMAL(10,1) NOT NULL , `latwb` DECIMAL(10,1) NOT NULL , `evapfan` DECIMAL(10,1) NOT NULL , `evapmotor` DECIMAL(10,1) NOT NULL , `mincfm` DECIMAL(10,1) NOT NULL ) ENGINE = MyISAM;
+
+INSERT IGNORE INTO `unitperformances` (`tons`, `totalcooling`, `sensiblecooling`, `latdb`, `latwb`, `evapfan`, `evapmotor`, `mincfm`) VALUES ('15', '4', '4', '4', '4', '4', '4', '4');
+
+CREATE TABLE `configurator`.`prices` ( `unit` DECIMAL(10,2) NOT NULL , `tonnage` DECIMAL(10,2) NOT NULL , `voltage` DECIMAL(10,2) NOT NULL , `fluid1` DECIMAL(10,2) NOT NULL , `evapfiltertype` DECIMAL(10,2) NOT NULL , `airsideecon` DECIMAL(10,2) NOT NULL , `chilledwatercoil` DECIMAL(10,2) NOT NULL , `watersideecon` DECIMAL(10,2) NOT NULL , `heatnreheat` DECIMAL(10,2) NOT NULL , `fluid2` DECIMAL(10,2) NOT NULL , `nonfused` DECIMAL(10,2) NOT NULL , `phasereversalsens` DECIMAL(10,2) NOT NULL , `freezestat` DECIMAL(10,2) NOT NULL , `tempavg` DECIMAL(10,2) NOT NULL , `condensatepump` DECIMAL(10,2) NOT NULL , `compressorheater` DECIMAL(10,2) NOT NULL , `remotewaterpump` DECIMAL(10,2) NOT NULL , `waterswitch` DECIMAL(10,2) NOT NULL , `drycontacts` DECIMAL(10,2) NOT NULL , `vavapptype` DECIMAL(10,2) NOT NULL , `walltemp` DECIMAL(10,2) NOT NULL , `wallhumid` DECIMAL(10,2) NOT NULL , `ducttemp` DECIMAL(10,2) NOT NULL , `ducthumid` DECIMAL(10,2) NOT NULL , `bmscomm` DECIMAL(10,2) NOT NULL , `marveldisplay` DECIMAL(10,2) NOT NULL , `scr` DECIMAL(10,2) NOT NULL , `smokedetector` DECIMAL(10,2) NOT NULL , `firestat` DECIMAL(10,2) NOT NULL , `shisplit` DECIMAL(10,2) NOT NULL , `compressorcover` DECIMAL(10,2) NOT NULL , `protectivecoil` DECIMAL(10,2) NOT NULL , `unitinsul` DECIMAL(10,2) NOT NULL ) ENGINE = MyISAM;
