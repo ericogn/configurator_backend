@@ -157,7 +157,7 @@ if ($num > 0){
     $f->Write(0, $row['unittag']);
 
     $template = $f->importPage(3);
-    $f->AddPage();
+    $f->AddPage('L');
     $f->useTemplate($template);
 
     $template = $f->importPage(4);
