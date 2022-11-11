@@ -18,6 +18,7 @@ $project = new Details($db);
 $data = json_decode(file_get_contents("php://input"));
 
 $project->name = $data->name;
+$project->email = $data->email;
 $project->reforderno = $data->reforderno;
 $project->address = $data->address;
 $project->city = $data->city;
@@ -34,10 +35,15 @@ $project->design = $data->design;
 
 
 if($project->insert()){
-    $user_arr=array(
-        "status" => true,
-        "message" => "Successfully Added!",
-    );
+    $result = $project -> retriveID();
+    $num = $result -> rowCount();
+    if ($num > 0){
+        $post_arr = array();
+        while($row = $result->fetch(PDO::FETCH_ASSOC)){
+            extract($row);
+            array_push($post_arr,$row);
+        }
+    }
 }
 else{
     $user_arr=array(
@@ -45,6 +51,6 @@ else{
         "message" => "Something went wrong!"
     );
 }
-print_r(json_encode($project));
+print_r(json_encode($post_arr));
 
 ?>

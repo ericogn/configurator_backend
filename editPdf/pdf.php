@@ -59,7 +59,7 @@ if ($num > 0){
     $f->AddPage();
     $f->useTemplate($template);
     $f->SetFont('Helvetica');
-    $f->SetTextColor(255, 0, 0);
+    $f->SetTextColor(0, 0, 255);
     $f->SetFontSize(10);
     
     

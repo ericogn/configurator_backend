@@ -25,9 +25,11 @@ $req->scfmret = $data->scfmret;
 $req->scfmout = $data->scfmout;
 $req->esp = $data->esp;
 $req->eatdb1ret = $data->eatdb1ret;
-$req->eatdb1mix = $data->eatdb1mix;
+$req->eatdb1out = $data->eatdb1out;
 $req->eatwb1ret = $data->eatwb1ret;
-$req->eatwb1mix = $data->eatwb1mix;
+$req->eatwb1out = $data->eatwb1out;
+$req->fluid1 = $data->fluid1;
+$req->percent1 = $data->percent1;
 $req->gpm1 = $data->gpm1;
 $req->eft1 = $data->eft1;
 $req->evapfiltertype = $data->evapfiltertype;
@@ -37,6 +39,8 @@ $req->airsideecon = $data->airsideecon;
 $req->eatf = $data->eatf;
 $req->approxlat = $data->approxlat;
 $req->eft2 = $data->eft2;
+$req->fluid2 = $data->fluid2;
+$req->percent2 = $data->percent2;
 $req->lftgpm = $data->lftgpm;
 $req->eatdb2 = $data->eatdb2;
 $req->eatwb2 = $data->eatwb2;
@@ -44,7 +48,6 @@ $req->eft3 = $data->eft3;
 $req->approxbtuh = $data->approxbtuh;
 $req->tonnage = $data->tonnage;
 $req->voltage = $data->voltage;
-
 
 
 if($req->update()){

@@ -9,6 +9,7 @@ class Details{
         private $proj;
         //public $id;
         public $name;
+        public $email;
         public $reforderno;
         public $address;
         public $city;
@@ -37,9 +38,11 @@ class Details{
         }
 
         public function retriveID(){
-            $qry = "SELECT id FROM " .$this->table ."ORDER BY id DESC LIMIT 1";
+            $qry = "SELECT id FROM details ORDER BY id DESC LIMIT 1";
+            
             $statement = $this->conn->prepare($qry);
             $statement->execute();
+            
             return $statement;
         }
 
@@ -47,6 +50,7 @@ class Details{
             $qry = "INSERT IGNORE INTO " .$this->table ."
             SET
             name=:name,
+            email=:email,
             reforderno=:reforderno,
             address=:address,
             city=:city,
@@ -64,6 +68,7 @@ class Details{
 
             //sanitize
             $this->name=htmlspecialchars(strip_tags($this->name));
+            $this->email=htmlspecialchars(strip_tags($this->email));
             $this->reforderno=htmlspecialchars(strip_tags($this->reforderno));
             $this->address=htmlspecialchars(strip_tags($this->address));
             $this->city=htmlspecialchars(strip_tags($this->city));
@@ -82,6 +87,7 @@ class Details{
             //binding
 
             $statement->bindParam(":name",$this->name);
+            $statement->bindParam(":email",$this->email);
             $statement->bindParam(":reforderno",$this->reforderno);
             $statement->bindParam(":address",$this->address);
             $statement->bindParam(":city",$this->city);
@@ -96,10 +102,13 @@ class Details{
             $statement->bindParam(":type",$this->type);
             $statement->bindParam(":design",$this->design);
 
+           
             if ($statement->execute()){
                 return true;
             }return false;
         }
+
+        
 }
 
 ?>
