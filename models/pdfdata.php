@@ -33,6 +33,11 @@
         public $compressorqty;
         public $digitalscrollcomp;
         public $stdscrollcomp;
+        public $evaptype;
+        public $evapefficiency;
+        public $qtysize2;
+        public $qtysize4;
+        public $refrigerantamount;
         public $pdfdimension;
         public $quotationterms;
        
@@ -41,12 +46,19 @@
             $this->conn = $db;
         }
 
-        public function getOneLine($tonnage, $voltage){
+        public function getOneLine(){
             $query = "SELECT * FROM `pdfdata` 
-            WHERE (tonnage = ".$tonnage." AND voltage = ".$voltage.")";
+            WHERE (tonnage =:tonnage AND voltage =:voltage)";
 
             //prepare statement
+            $this->tonnage=htmlspecialchars(strip_tags($this->tonnage));
+            $this->voltage=htmlspecialchars(strip_tags($this->voltage));
+
             $statement = $this->conn->prepare($query);
+
+            $statement->bindParam(":tonnage", $this->tonnage);
+            $statement->bindParam(":voltage", $this->voltage);
+
             $statement->execute();
     
             return $statement;
@@ -83,6 +95,11 @@
             compressorqty =:compressorqty,
             digitalscrollcomp =:digitalscrollcomp,
             stdscrollcomp =:stdscrollcomp,
+            evaptype =:evaptype,
+            evapefficiency =:evapefficiency,
+            qtysize2 =:qtysize2,
+            qtysize4 =:qtysize4,
+            refrigerantamount =:refrigerantamount,
             pdfdimension =:pdfdimension,
             quotationterms =:quotationterms
             WHERE (tonnage =:tonnage AND voltage =:voltage)
@@ -116,6 +133,13 @@
             $this->compressorqty=htmlspecialchars(strip_tags($this->compressorqty));
             $this->digitalscrollcomp=htmlspecialchars(strip_tags($this->digitalscrollcomp));
             $this->stdscrollcomp=htmlspecialchars(strip_tags($this->stdscrollcomp));
+
+            $this->evaptype=htmlspecialchars(strip_tags($this->evaptype));
+            $this->evapefficiency=htmlspecialchars(strip_tags($this->evapefficiency));
+            $this->qtysize2=htmlspecialchars(strip_tags($this->qtysize2));
+            $this->qtysize4=htmlspecialchars(strip_tags($this->qtysize4));
+            $this->refrigerantamount=htmlspecialchars(strip_tags($this->refrigerantamount));
+
             $this->pdfdimension=htmlspecialchars(strip_tags($this->pdfdimension));
             $this->quotationterms=htmlspecialchars(strip_tags($this->quotationterms));
             $this->tonnage=htmlspecialchars(strip_tags($this->tonnage));
@@ -153,6 +177,13 @@
             $statement->bindParam(":compressorqty", $this->compressorqty);
             $statement->bindParam(":digitalscrollcomp", $this->digitalscrollcomp);
             $statement->bindParam(":stdscrollcomp", $this->stdscrollcomp);
+
+            $statement->bindParam(":evaptype", $this->evaptype);
+            $statement->bindParam(":evapefficiency", $this->evapefficiency);
+            $statement->bindParam(":qtysize2", $this->qtysize2);
+            $statement->bindParam(":qtysize4", $this->qtysize4);
+            $statement->bindParam(":refrigerantamount", $this->refrigerantamount);
+
             $statement->bindParam(":pdfdimension", $this->pdfdimension);
             $statement->bindParam(":quotationterms", $this->quotationterms);
             $statement->bindParam(":tonnage", $this->tonnage);

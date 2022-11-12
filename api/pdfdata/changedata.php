@@ -46,6 +46,13 @@ $pdf->maxoverprotection =$data->maxoverprotection;
 $pdf->compressorqty =$data->compressorqty;
 $pdf->digitalscrollcomp =$data->digitalscrollcomp;
 $pdf->stdscrollcomp =$data->stdscrollcomp;
+
+$pdf->evaptype =$data->evaptype;
+$pdf->evapefficiency =$data->evapefficiency;
+$pdf->qtysize2 =$data->qtysize2;
+$pdf->qtysize4 =$data->qtysize4;
+$pdf->refrigerantamount =$data->refrigerantamount;
+
 $pdf->pdfdimension =$data->pdfdimension;
 $pdf->quotationterms =$data->quotationterms;
 $pdf->tonnage =$data->tonnage;

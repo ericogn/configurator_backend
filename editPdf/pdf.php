@@ -19,6 +19,7 @@ require_once('../fpdi/src/autoload.php');
 include_once('../database/database.php');
 include_once('../models/projectsaver.php');
 include_once('../models/prices.php');
+include_once('../models/pdfdata.php');
 $f= new Fpdi();
 /*
     ***********
@@ -31,6 +32,7 @@ $database = new Database();
 $db = $database->getConnection();
 $req = new Project($db);
 $prices = new Prices($db);
+$data = new Pdfdata($db);
 
 $req->details = isset($_GET['details']) ? $_GET['details'] : die();
 //getreq
@@ -47,8 +49,14 @@ if ($num > 0){
     $post_arr = array();
     while($row = $result->fetch(PDO::FETCH_ASSOC)){
         $p = $prc->fetch(PDO::FETCH_ASSOC);
+        
         extract($row);
         extract($p);
+
+        $data->tonnage = $row['tonnage'];
+        $data->voltage = $row['voltage'];
+        $pdfdata = $data->getOneLine()->fetch(PDO::FETCH_ASSOC);
+                
         array_push($post_arr,$row);
         
         break;
@@ -90,6 +98,8 @@ if ($num > 0){
     $f->SetXY(155,37.7);
     $f->Write(0, $row['contractor']);
 
+    //cooling performances
+
     $f->SetXY(69,57.7);
     $f->Write(0, $row['voltage']);
 
@@ -100,13 +110,13 @@ if ($num > 0){
     $f->Write(0, $row['scfmret']);
 
     $f->SetXY(69,76.5);
-    $f->Write(0, '0');
+    $f->Write(0, $pdfdata['mincfm']);
 
     $f->SetXY(69,80);
     $f->Write(0, $row['scfmout']);
 
     $f->SetXY(69,83.5);
-    $f->Write(0, '');
+    $f->Write(0, $pdfdata['evaporator']);
 
     $f->SetXY(69,87);
     $f->Write(0, $row['eatdbret']);
@@ -121,14 +131,17 @@ if ($num > 0){
     $f->SetXY(69,95.5);
     $f->Write(0, $row['approxbtuh']);
     
+    $f->SetXY(69,100);
+    $f->Write(0, $pdfdata['eer']);
+
     $f->SetXY(155,73);
     $f->Write(0, $row['fluidtype']);
     
     $f->SetXY(155,76.5);
     $f->Write(0, $row['gpm']);
 
-    $f->SetXY(155,80);
-    $f->Write(0,'');
+    $f->SetXY(155,80.4);
+    $f->Write(0,$pdfdata['pressuredrop']);
 
     $f->SetXY(155,84.6);
     $f->Write(0, $row['eft']);
@@ -136,8 +149,80 @@ if ($num > 0){
     $f->SetXY(155,88.6);
     $f->Write(0, $row['lftgpm']);
 
-    $f->SetXY(72.1,179);
+   
+
+
+    //psyhical data
+
+    $f->SetXY(69,110);
+    $f->Write(0, $pdfdata['evapmaterials']);
+
+    $f->SetXY(69,114);
+    $f->Write(0, $pdfdata['evaprows']);
+
+    $f->SetXY(69,118);
+    $f->Write(0, $pdfdata['evapfacearea']);
+
+    $f->SetXY(69,122);
+    $f->Write(0, $pdfdata['evapfacevel']);
+
+    $f->SetXY(155,110);
+    $f->Write(0, $pdfdata['condtype']);
+
+    //electrical data
+    $f->SetXY(69,133.5);
+    $f->Write(0, $pdfdata['evapblowerqty']);
+
+    $f->SetXY(69,137.5);
+    $f->Write(0, $pdfdata['evapblowerrpm']);
+
+    $f->SetXY(69,141.2);
+    $f->Write(0, $pdfdata['blowerkw']);
+
+    $f->SetXY(69,145.1);
+    $f->Write(0, $pdfdata['heatnominal']);
+
+    $f->SetXY(69,149);
+    $f->Write(0, $pdfdata['heatuse']);
+    
+    $f->SetXY(69,152.6);
+    $f->Write(0, $pdfdata['heatamps']);
+
+    $f->SetXY(69,156);
+    $f->Write(0, $pdfdata['mincirccapac']);
+    
+    $f->SetXY(69,160);
+    $f->Write(0, $pdfdata['maxoverprotection']);
+
+    $f->SetXY(155,134);
+    $f->Write(0, $pdfdata['compressorqty']);
+
+    $f->SetXY(165,137.5);
+    $f->Write(0, $row['digitalscrollcomp']);
+
+    $f->SetXY(165,141.5);
+    $f->Write(0, $pdfdata['stdscrollcomp']);
+    
+    
+    // evap filter
+
+    $f->SetXY(69,175.3);
     $f->Write(0, $row['evapfiltertype']);
+
+    $f->SetXY(69,179);
+    $f->Write(0, $pdfdata['evapefficiency']);
+
+    $f->SetXY(69,183);
+    $f->Write(0, $pdfdata['qtysize2']);
+
+    $f->SetXY(69,187);
+    $f->Write(0, $pdfdata['qtysize4']);
+
+    //refrigerant
+
+    $f->SetXY(69,202);
+    $f->Write(0, $pdfdata['refrigerantamount']);
+
 
     $template = $f->importPage(2);
     $f->AddPage();
@@ -909,6 +994,21 @@ if ($num > 0){
     $f->useTemplate($template);
     $f->setXY(175,10);
     $f->Write(0, $row['lastmodified']);
+
+
+    $f->setXY(175,29);
+    $f->Write(0, '$');
+    $f->Write(0, $total_per_unit);
+
+    $f->setXY(175,34);
+    $f->Write(0, $row['quantity']);
+
+
+    $f->setXY(175,39);
+    $total_net=floatval($row['quantity'])*floatval($total_per_unit);
+    $f->Write(0, '$');
+    $f->Write(0, $total_net);
+
     $template = $f->importPage(7);
     $f->AddPage();
     $f->useTemplate($template);
