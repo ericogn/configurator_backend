@@ -1,5 +1,5 @@
 <?php
-    class PercentGlycol{
+    class Pdfdata{
         private $conn;
         private $table = "pdfdata";
 

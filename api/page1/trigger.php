@@ -20,17 +20,17 @@ $page1 = new Page1($db);
 $page1->details = isset($_GET['details']) ? $_GET['details'] : die();
 
 
-if($page1->updatefields()){
-    $user_arr=array(
-        "status" => true,
-        "message" => "Successfully Added!",
-    );
-}
-else{
-    $user_arr=array(
-        "status" => false,
-        "message" => "Something went wrong!"
-    );
-}
-print_r(json_encode($user_arr));
+// if($page1->updatefields()){
+//     $user_arr=array(
+//         "status" => true,
+//         "message" => "Successfully Added!",
+//     );
+// }
+// else{
+//     $user_arr=array(
+//         "status" => false,
+//         "message" => "Something went wrong!"
+//     );
+// }
+// print_r(json_encode($user_arr));
 ?>
