@@ -100,6 +100,9 @@ if ($num > 0){
 
     //cooling performances
 
+    $f->SetXY(69,53.7);
+    $f->Write(0, $pdfdata['mass']);
+
     $f->SetXY(69,57.7);
     $f->Write(0, $row['voltage']);
 
@@ -194,11 +197,16 @@ if ($num > 0){
     $f->SetXY(69,160);
     $f->Write(0, $pdfdata['maxoverprotection']);
 
-    $f->SetXY(155,134);
-    $f->Write(0, $pdfdata['compressorqty']);
+    $f->SetXY(150,134);
+    if($row['digitalscrollcomp']=='Digital Scroll (1st circ) + Std Scroll (2nd Circ)'){
+        $f->Write(0, 'Digital(1st)+Standard(2nd)');
+    }else{
+        $f->Write(0, $row['digitalscrollcomp']);
+    }
+    
 
     $f->SetXY(165,137.5);
-    $f->Write(0, $row['digitalscrollcomp']);
+    $f->Write(0, $pdfdata['digitalscrollcomp']);
 
     $f->SetXY(165,141.5);
     $f->Write(0, $pdfdata['stdscrollcomp']);
@@ -1016,7 +1024,6 @@ if ($num > 0){
     $f->Write(0, $row['lastmodified']);
 
     $f->Output();
-
 } else{
     echo json_encode(array('message' => 'No data found'));
 }
