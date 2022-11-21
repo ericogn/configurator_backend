@@ -36,7 +36,7 @@
             evapfan =:evapfan,
             evapmotor =:evapmotor,
             mincfm =:mincfm
-            WHERE tons = ".$this->tons."
+            WHERE tons =:tonnage
             ";
 
             $this->totalcooling=htmlspecialchars(strip_tags($this->totalcooling));
@@ -46,6 +46,7 @@
             $this->evapfan=htmlspecialchars(strip_tags($this->evapfan));
             $this->evapmotor=htmlspecialchars(strip_tags($this->evapmotor));
             $this->mincfm=htmlspecialchars(strip_tags($this->mincfm));
+            $this->tonnage=htmlspecialchars(strip_tags($this->tonnage));
 
             $statement = $this->conn->prepare($qry);
 
@@ -56,6 +57,7 @@
             $statement->bindParam(":evapfan",$this->evapfan);
             $statement->bindParam(":evapmotor",$this->evapmotor);
             $statement->bindParam(":mincfm",$this->mincfm);
+            $statement->bindParam(":tonnage",$this->tonnage);
 
             if($statement->execute()){
                 return true;

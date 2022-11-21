@@ -38,13 +38,22 @@
         }
 
         public function read(){
-            $query = "SELECT * FROM `autoloader` WHERE tonnage = ".$this->tonnage." AND voltage = ".$this->voltage."";
+            $query = "SELECT * FROM `autoloader` 
+            WHERE tonnage =:tonnage AND voltage =:voltage";
 
             //prepare statement
-            $statement = $this->conn->prepare($query);
-            $statement->execute();
+            $this->tonnage=htmlspecialchars(strip_tags($this->tonnage));
+            $this->voltage=htmlspecialchars(strip_tags($this->voltage));
+
+            $stmt = $this->conn->prepare($query);
+            
+            $stmt->bindParam(":tonnage", $this->tonnage);
+            $stmt->bindParam(":voltage", $this->voltage);
+
+            $stmt->execute();
     
-            return $statement;
+            return $stmt;
+            
         }
 
         public  function readall(){
