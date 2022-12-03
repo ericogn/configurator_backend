@@ -30,7 +30,7 @@ $page3->tonnage = $data->SelectTonnage;
 
 if($page3->update()){
     $user_arr=array(
-        "error"=>"false"
+        "Status"=>"Update successful"
     );
 }
 else{

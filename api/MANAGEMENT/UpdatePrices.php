@@ -20,7 +20,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 
 $price->unit = 0;
-$price->t15 = $data->unit15Tons;
+$price->t15 = $data->UnitBasePriceFor15Tons;
 $price->t20 = $data->unit20Tons;
 $price->t25 = $data->unit25Tons;
 $price->t30 = $data->unit30Tons;

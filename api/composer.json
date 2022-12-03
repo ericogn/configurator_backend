@@ -1,0 +1,6 @@
+{
+    "require": {
+        "php": ">=5.3.2",
+        "facebook/graph-sdk": "^5.7"
+    }
+}
