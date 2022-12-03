@@ -5,7 +5,7 @@
         private $host = "configurator";            //Server
         private $db_name = "configurator";       //Database Name
         private $username = "root";             //UserName of Phpmyadmin
-        private $password = "";                 //Password associated with username
+        private $pass = "";                 //Password associated with username
         public $conn;
      
         // get the database connection
@@ -14,7 +14,7 @@
             $this->conn = null;
      
             try{
-                $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
+                $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->pass);
                 $this->conn->exec("set names utf8");
                 $this->conn->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
                 //$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

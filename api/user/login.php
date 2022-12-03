@@ -46,8 +46,8 @@ else:
         $returnData = msg(0,422,'Invalid Email Address!');
     
     // IF PASSWORD IS LESS THAN 8 THE SHOW THE ERROR
-    elseif(strlen($password) < 8):
-        $returnData = msg(0,422,'Your password must be at least 8 characters long!');
+    elseif(strlen($password) < 4):
+        $returnData = msg(0,422,'Your password must be at least 4 characters long!');
 
     // THE USER IS ABLE TO PERFORM THE LOGIN ACTION
     else:
@@ -68,7 +68,12 @@ else:
                 // VERIFYING THE PASSWORD (IS CORRECT OR NOT?)
                 // IF PASSWORD IS CORRECT THEN SEND THE LOGIN TOKEN
                 //$check_password
-                if(true):
+                // echo($password);
+                // echo('   ');
+                // echo($row['password']);
+                // echo('    ');
+                
+                if($check_password):
 
                     $jwt = new JwtHandler();
                     $token = $jwt->jwtEncodeData(
