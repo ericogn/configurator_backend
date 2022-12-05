@@ -36,7 +36,7 @@ elseif (
     || empty(trim($data->password))
 ) :
 
-    $fields = ['fields' => ['firstname', 'email', 'password']];
+    $fields = ['fields' => ['firstname', 'email', 'password', 'company']];
     $returnData = msg(0, 422, 'Please Fill in all Required Fields!', $fields);
 
 // IF THERE ARE NO EMPTY FIELDS THEN-
@@ -45,6 +45,8 @@ else :
     $firstname = trim($data->firstname);
     $email = trim($data->email);
     $password = trim($data->password);
+    $company = trim($data->company);
+
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) :
         $returnData = msg(0, 422, 'Invalid Email Address!');
 
@@ -70,7 +72,8 @@ else :
                 SET
                 firstname=:firstname,
                 email=:email,
-                password=:password";
+                password=:password,
+                company=:company";
 
                 $insert_stmt = $conn->prepare($insert_query);
 
@@ -78,7 +81,7 @@ else :
                 $insert_stmt->bindValue(':firstname', htmlspecialchars(strip_tags($firstname)), PDO::PARAM_STR);
                 $insert_stmt->bindValue(':email', $email, PDO::PARAM_STR);
                 $insert_stmt->bindValue(':password', password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
-
+                $insert_stmt->bindValue(':company', $company, PDO::PARAM_STR);
                 $insert_stmt->execute();
 
                 $returnData = msg(1, 201, 'You have successfully registered.');

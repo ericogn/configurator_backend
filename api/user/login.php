@@ -84,7 +84,13 @@ else:
                     $returnData = [
                         'success' => 1,
                         'message' => 'You have successfully logged in.',
-                        'token' => $token
+                        'email' => $row['email'],
+                        'firstname' => $row['firstname'],
+                        'lastname' => $row['lastname'],
+                        'company' => $row['company'],
+                        'lastproject'=>$row['lastAccessedProjectID'],
+                        'token' => $token,
+
                     ];
 
                 // IF INVALID PASSWORD
