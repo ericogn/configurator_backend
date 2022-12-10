@@ -31,8 +31,16 @@ class Auth extends JwtHandler
             ) :
                 return [
                     "success" => 1,
-                    "user" => $user,
-                    "token" => $data
+                    "firstname" => $user['firstname'],
+                    "lastname" => $user['lastname'],
+                    "email" => $user['email'],
+                    "company" => $user['company'],
+                    "lastAccessedProjectID" => $user['lastAccessedProjectID'],
+                    "multiplier" => $user['multiplier'],
+                    "token_iss" => $data['data']->iss,
+                    "token_aud" => $data['data']->aud,
+                    "token_iat" => $data['data']->iat,
+                    "token_exp" => $data['data']->exp
                 ];
             else :
                 
