@@ -43,6 +43,7 @@ elseif (
 else :
 
     $firstname = trim($data->firstname);
+    $lastname = trim($data->lastname);
     $email = trim($data->email);
     $password = trim($data->password);
     $company = trim($data->company);
@@ -71,6 +72,7 @@ else :
                 $insert_query = "INSERT IGNORE INTO `user`
                 SET
                 firstname=:firstname,
+                lastname=:lastname,
                 email=:email,
                 password=:password,
                 company=:company";
@@ -79,6 +81,7 @@ else :
 
                 // DATA BINDING
                 $insert_stmt->bindValue(':firstname', htmlspecialchars(strip_tags($firstname)), PDO::PARAM_STR);
+                $insert_stmt->bindValue(':lastname', htmlspecialchars(strip_tags($lastname)), PDO::PARAM_STR);
                 $insert_stmt->bindValue(':email', $email, PDO::PARAM_STR);
                 $insert_stmt->bindValue(':password', password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
                 $insert_stmt->bindValue(':company', $company, PDO::PARAM_STR);

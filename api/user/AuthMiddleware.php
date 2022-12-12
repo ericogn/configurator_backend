@@ -35,7 +35,6 @@ class Auth extends JwtHandler
                     "lastname" => $user['lastname'],
                     "email" => $user['email'],
                     "company" => $user['company'],
-                    "lastAccessedProjectID" => $user['lastAccessedProjectID'],
                     "multiplier" => $user['multiplier'],
                     "token_iss" => $data['data']->iss,
                     "token_aud" => $data['data']->aud,

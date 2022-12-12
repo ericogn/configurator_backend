@@ -88,7 +88,6 @@ else:
                         'firstname' => $row['firstname'],
                         'lastname' => $row['lastname'],
                         'company' => $row['company'],
-                        'lastproject'=>$row['lastAccessedProjectID'],
                         'token' => $token,
 
                     ];
