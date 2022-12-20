@@ -21,7 +21,8 @@ include_once('../database/database.php');
 include_once('../models/projectsaver.php');
 include_once('../models/prices.php');
 include_once('../models/pdfdata.php');
-ini_set('display_errors',1);
+ini_set("session.auto_start", 0);
+require('fpdf.php');
 ob_start();
 $f= new Fpdi();
 /*
