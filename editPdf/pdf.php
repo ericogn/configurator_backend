@@ -1022,7 +1022,8 @@ if ($num>0){
     $f->setXY(175,10);
     $f->Write(0, $row['lastmodified']);
 
-    // $f->Output('quotation.pdf','I');
+    ob_end_clean();
+    $f->Output('quotation.pdf','I');
     
 } else{
     echo json_encode(array('message' => 'No data found'));
