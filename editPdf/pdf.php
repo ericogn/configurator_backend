@@ -46,7 +46,7 @@ $modified = $f->setSourceFile('../editPdf/invoicesamplepdf.pdf');
 
 //https://drive.google.com/file/d/14fqhhf_MKP9bVLTGo0XxbMNLNxkW_erA/view?usp=share_link
 
-if ($num > 0){
+if (1){
     $post_arr = array();
     while($row = $result->fetch(PDO::FETCH_ASSOC)){
         $p = $prc->fetch(PDO::FETCH_ASSOC);
