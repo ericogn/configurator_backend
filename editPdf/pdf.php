@@ -45,9 +45,9 @@ $modified = $f->setSourceFile('../editPdf/invoicesamplepdf.pdf');
 
 
 //https://drive.google.com/file/d/14fqhhf_MKP9bVLTGo0XxbMNLNxkW_erA/view?usp=share_link
-echo($num);
-if (1){
-    $post_arr = array();
+
+if ($num>0){
+    
     while($row = $result->fetch(PDO::FETCH_ASSOC)){
         $p = $prc->fetch(PDO::FETCH_ASSOC);
         
@@ -57,7 +57,7 @@ if (1){
         $data->tonnage = $row['tonnage'];
         $data->voltage = $row['voltage'];
         $pdfdata = $data->getOneLine()->fetch(PDO::FETCH_ASSOC);
-            
+        echo($pdfdata);
         break;
     }    
     //convert to json and output
