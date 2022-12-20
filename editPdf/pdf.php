@@ -8,7 +8,7 @@ header("Access-Control-Allow-Origin", "*");
 header("Access-Control-Allow-Credentials", "true");
 header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
 header("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-
+header('Content-type: application/pdf');
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Max-Age: 3600");
@@ -43,6 +43,7 @@ $num = $result -> rowCount();
 
 $modified = $f->setSourceFile('../editPdf/invoicesamplepdf.pdf');
 
+
 //https://drive.google.com/file/d/14fqhhf_MKP9bVLTGo0XxbMNLNxkW_erA/view?usp=share_link
 
 if ($num > 0){
@@ -56,9 +57,7 @@ if ($num > 0){
         $data->tonnage = $row['tonnage'];
         $data->voltage = $row['voltage'];
         $pdfdata = $data->getOneLine()->fetch(PDO::FETCH_ASSOC);
-                
-        array_push($post_arr,$row);
-        
+            
         break;
     }    
     //convert to json and output
@@ -1023,7 +1022,8 @@ if ($num > 0){
     $f->setXY(175,10);
     $f->Write(0, $row['lastmodified']);
 
-    $f->Output();
+    $f->Output('quotation.pdf','I');
+    
 } else{
     echo json_encode(array('message' => 'No data found'));
 }
