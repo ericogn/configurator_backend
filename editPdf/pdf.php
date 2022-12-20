@@ -61,7 +61,7 @@ if ($num>0){
         break;
     }    
     //convert to json and output
-    echo json_encode($pdfdata);
+    //echo json_encode($pdfdata);
     $template = $f->importPage(1);
     $f->AddPage();
     $f->useTemplate($template);
