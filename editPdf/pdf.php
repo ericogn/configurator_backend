@@ -57,11 +57,11 @@ if ($num>0){
         $data->tonnage = $row['tonnage'];
         $data->voltage = $row['voltage'];
         $pdfdata = $data->getOneLine()->fetch(PDO::FETCH_ASSOC);
-        echo($pdfdata);
+        
         break;
     }    
     //convert to json and output
-    //echo json_encode($post_arr);
+    echo json_encode($post_arr);
     $template = $f->importPage(1);
     $f->AddPage();
     $f->useTemplate($template);
