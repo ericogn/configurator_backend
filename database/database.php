@@ -6,7 +6,7 @@
         private $host = "162.241.226.133";          //bluehost server
         private $db_name = "greenref_configurator";       //Database Name
         private $username = "greenref";             //UserName of Phpmyadmin
-        private $pass = "2WsXdR5%";                 //Password associated with username
+        private $pass = "0oKm6tgb7Poe%^";                 //Password associated with username
         public $conn;
      
         // get the database connection
