@@ -2,10 +2,11 @@
     class Database{
  
         // specify your own database credentials
-        private $host = "configurator";            //Server
-        private $db_name = "configurator";       //Database Name
-        private $username = "root";             //UserName of Phpmyadmin
-        private $pass = "";                 //Password associated with username
+        //private $host = "configurator";            //Server
+        private $host = "162.241.226.133";          //bluehost server
+        private $db_name = "greenref_configurator";       //Database Name
+        private $username = "greenref";             //UserName of Phpmyadmin
+        private $pass = "xxmirceaxx";                 //Password associated with username
         public $conn;
      
         // get the database connection
