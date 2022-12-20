@@ -15,6 +15,7 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 require_once('../fpdf/fpdf.php');
+include_once('../fpdf/fpdf.php');
 require_once('../fpdi/src/autoload.php');
 include_once('../database/database.php');
 include_once('../models/projectsaver.php');
