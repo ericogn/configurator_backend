@@ -20,6 +20,7 @@ include_once('../database/database.php');
 include_once('../models/projectsaver.php');
 include_once('../models/prices.php');
 include_once('../models/pdfdata.php');
+ini_set('display_errors',1);
 $f= new Fpdi();
 /*
     ***********
